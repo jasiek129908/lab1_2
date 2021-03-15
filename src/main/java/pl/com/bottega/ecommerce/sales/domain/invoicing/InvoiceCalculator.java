@@ -4,5 +4,5 @@ import pl.com.bottega.ecommerce.sales.domain.productscatalog.ProductType;
 import pl.com.bottega.ecommerce.sharedkernel.Money;
 
 interface InvoiceCalculator {
-    InvoiceLine calculate(ProductType productType, Money net);
+    InvoiceLine calculate();
 }

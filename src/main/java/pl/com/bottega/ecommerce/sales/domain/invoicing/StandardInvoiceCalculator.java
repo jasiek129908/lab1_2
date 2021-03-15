@@ -16,8 +16,8 @@ public class StandardInvoiceCalculator implements InvoiceCalculator {
     }
 
     @Override
-    public InvoiceLine calculate(ProductType productType, Money net) {
-        BigDecimal ratio =  BigDecimal.valueOf(0.23);
+    public InvoiceLine calculate() {
+        BigDecimal ratio = BigDecimal.valueOf(0.23);
         String desc = "23%";
         Money taxValue = net.multiplyBy(ratio);
         return new InvoiceLine(item.getProductData(), item.getQuantity(), net, new Tax(taxValue, desc));

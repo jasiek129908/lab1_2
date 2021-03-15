@@ -5,7 +5,7 @@ import pl.com.bottega.ecommerce.sharedkernel.Money;
 
 import java.math.BigDecimal;
 
-public class DrugInvoiceCalculator implements InvoiceCalculator{
+public class DrugInvoiceCalculator implements InvoiceCalculator {
 
     private Money net;
     private RequestItem item;
@@ -16,8 +16,8 @@ public class DrugInvoiceCalculator implements InvoiceCalculator{
     }
 
     @Override
-    public InvoiceLine calculate(ProductType productType, Money net) {
-        BigDecimal ratio =  BigDecimal.valueOf(0.05);
+    public InvoiceLine calculate() {
+        BigDecimal ratio = BigDecimal.valueOf(0.05);
         String desc = "5% (D)";
         Money taxValue = net.multiplyBy(ratio);
         return new InvoiceLine(item.getProductData(), item.getQuantity(), net, new Tax(taxValue, desc));
